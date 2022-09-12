@@ -36,3 +36,6 @@ lerna-debug.log*
 
 # config
 .env
+
+# Local Netlify folder
+.netlify
