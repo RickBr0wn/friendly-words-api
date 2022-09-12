@@ -8,7 +8,7 @@
     "dev": "netlify dev",
     "build": "npm run lint && rm -rf dist/ && tsc",
     "start": "npm run build && node dist/index.js",
-    "lint": "eslint src/**/*.ts"
+    "lint": "eslint functions/*.ts"
   },
   "keywords": [
     "Node.js",
