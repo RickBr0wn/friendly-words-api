@@ -4,11 +4,11 @@
 
 Powered by Netlify Functions, this API will provide two random 'friendly words' from the curated lists of Glitch words, perfect for file names or user names.
 
-## Getting Started
+## 🚀 Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Prerequisites
+### 🧳 Prerequisites
 
 To get this API running locally you will need:
 
@@ -16,7 +16,7 @@ To get this API running locally you will need:
 - a command line terminal (iTerm or bash)
 - your favorite IDE (vscode, sublime)
 
-### Installing
+### 💻 Installing
 
 Clone the repo:
 
@@ -26,11 +26,11 @@ git clone https://github.com/RickBr0wn/friendly-words-api <YOUR_PROJECT_NAME> &&
 
 > Please credit this API if you build something fantastic!
 
-## Running the tests
+## 🧪 Running the tests
 
 No test scripts available (yet!)
 
-## Usage
+## 👷🏼‍♂️ Usage
 
 Hitting this endpoint will return the 'friendly words':
 
@@ -38,7 +38,7 @@ Hitting this endpoint will return the 'friendly words':
 https://friendly-words-api.netlify.app
 ```
 
-## Built With
+## 🧐 Built With
 
 - [node](https://nodejs.org/en/about/) - As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications.
 - [prettier](https://prettier.io) - Prettier is n opinionated code formatter, that supports many languages, integrates with most editors & has few options.
@@ -47,14 +47,14 @@ https://friendly-words-api.netlify.app
 - [netlify](https://www.netlify.com) - Netlify is a cloud platform for building, deploying, and managing modern web projects.
 - [friendly-words](https://www.npmjs.com/package/friendly-words) - This package returns the curated lists of Glitch words, as used in project names and elsewhere.
 
-## Contributing
+## ⭐️ Contributing
 
 [CONTRIBUTING.md](https://gist.github.com/RickBr0wn/0b4a139f833e0d0bafddb0d043644b20)
 
-## Author(s)
+## 📚 Author(s)
 
 - **Rick Brown** - _Initial work_ - [RickBr0wn](https://github.com/RickBr0wn)
 
-## License
+## 🪪 License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://gist.github.com/RickBr0wn/5f95ee6118bb32034e2b94acbd88a99d) file for details
