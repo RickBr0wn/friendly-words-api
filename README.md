@@ -44,6 +44,7 @@ https://friendly-words-api.netlify.app
 - [prettier](https://prettier.io) - Prettier is n opinionated code formatter, that supports many languages, integrates with most editors & has few options.
 - [eslint](https://eslint.org) - ESLint statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
 - [typescript](https://www.typescriptlang.org) - TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
+- [netlify](https://www.netlify.com) - Netlify is a cloud platform for building, deploying, and managing modern web projects.
 - [friendly-words](https://www.npmjs.com/package/friendly-words) - This package returns the curated lists of Glitch words, as used in project names and elsewhere.
 
 ## Contributing
