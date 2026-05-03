@@ -1,36 +1,26 @@
 {
-  "name": "modern-node-js-and-typescript-starter",
-  "version": "1.0.0",
-  "description": "A modern Node.js & TypeScript starter project",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "netlify dev",
-    "build": "npm run lint && rm -rf dist/ && tsc",
-    "start": "npm run build && node dist/index.js",
-    "lint": "eslint functions/*.ts"
-  },
-  "keywords": [
-    "Node.js",
-    "TypeScript",
-    "starter"
-  ],
+  "name": "friendly-words-api",
+  "version": "2.0.0",
+  "description": "Netlify Functions v2 API returning random friendly word pairs",
   "author": "Rick Brown",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^18.7.16",
-    "@typescript-eslint/eslint-plugin": "^5.36.2",
-    "@typescript-eslint/parser": "^5.36.2",
-    "eslint": "^8.23.1",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "nodemon": "^2.0.19",
-    "prettier": "^2.7.1",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.8.3"
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint netlify/",
+    "lint:fix": "eslint netlify/ --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
-  "dependencies": {
-    "dotenv": "^16.0.2",
-    "friendly-words": "^1.2.0"
+  "devDependencies": {
+    "@netlify/functions": "^5.2.0",
+    "@types/node": "^22.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.8.0",
+    "typescript-eslint": "^8.0.0"
   }
 }

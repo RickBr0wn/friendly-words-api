@@ -2,59 +2,162 @@
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)]()
 
-Powered by Netlify Functions, this API will provide two random 'friendly words' from the curated lists of Glitch words, perfect for file names or user names.
+A Netlify Functions v2 serverless API that returns random friendly word pairs — perfect for generating readable file names, usernames, or project identifiers. Word lists are sourced from [Glitch's friendly-words](https://github.com/glitchdotcom/friendly-words) (MIT licensed) and bundled locally — no runtime npm dependency.
 
-## 🚀 Getting Started
+**Live endpoint:** `https://friendly-words-api.netlify.app`
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+---
 
-### 🧳 Prerequisites
+## API Reference
 
-To get this API running locally you will need:
+### `GET /`
 
-- a node package manager (yarn or npm)
-- a command line terminal (iTerm or bash)
-- your favorite IDE (vscode, sublime)
+Returns a single random word pair.
 
-### 💻 Installing
+**Response**
 
-Clone the repo:
+```json
+{
+  "predicate": "accepting",
+  "object": "river",
+  "phrase": "accepting river"
+}
+```
+
+### Query Parameters
+
+| Parameter   | Type   | Default | Description                                                                               |
+| ----------- | ------ | ------- | ----------------------------------------------------------------------------------------- |
+| `count`     | number | `1`     | Number of word pairs to return (capped at 10). When `count > 1` the response is an array. |
+| `separator` | string | ` `     | Character(s) placed between the predicate and object in `phrase`.                         |
+
+### Examples
+
+**Single pair (default)**
+
+```
+GET /
+```
+
+```json
+{ "predicate": "brave", "object": "mountain", "phrase": "brave mountain" }
+```
+
+**Multiple pairs**
+
+```
+GET /?count=3
+```
+
+```json
+[
+  { "predicate": "brave", "object": "mountain", "phrase": "brave mountain" },
+  { "predicate": "clear", "object": "ocean", "phrase": "clear ocean" },
+  { "predicate": "daring", "object": "forest", "phrase": "daring forest" }
+]
+```
+
+**Slug-style output**
+
+```
+GET /?separator=-
+```
+
+```json
+{ "predicate": "swift", "object": "river", "phrase": "swift-river" }
+```
+
+**Multiple slug-style pairs**
+
+```
+GET /?count=5&separator=-
+```
+
+```json
+[
+  { "predicate": "swift",  "object": "river",   "phrase": "swift-river" },
+  { "predicate": "bright", "object": "canyon",  "phrase": "bright-canyon" },
+  ...
+]
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js ≥ 20
+- [Netlify CLI](https://docs.netlify.com/cli/get-started/) (`npm i -g netlify-cli`)
+
+### Install
 
 ```bash
-git clone https://github.com/RickBr0wn/friendly-words-api <YOUR_PROJECT_NAME> && cd <YOUR_PROJECT_NAME>
+git clone https://github.com/RickBr0wn/friendly-words-api
+cd friendly-words-api
+npm install
 ```
 
-> Please credit this API if you build something fantastic!
+### Run locally
 
-## 🧪 Running the tests
-
-No test scripts available (yet!)
-
-## 👷🏼‍♂️ Usage
-
-Hitting this endpoint will return the 'friendly words':
-
-```url
-https://friendly-words-api.netlify.app
+```bash
+npm run dev
 ```
 
-## 🧐 Built With
+The Netlify CLI starts a local dev server at `http://localhost:8888`. The function is hot-reloaded on save.
 
-- [node](https://nodejs.org/en/about/) - As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications.
-- [prettier](https://prettier.io) - Prettier is n opinionated code formatter, that supports many languages, integrates with most editors & has few options.
-- [eslint](https://eslint.org) - ESLint statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
-- [typescript](https://www.typescriptlang.org) - TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
-- [netlify](https://www.netlify.com) - Netlify is a cloud platform for building, deploying, and managing modern web projects.
-- [friendly-words](https://www.npmjs.com/package/friendly-words) - This package returns the curated lists of Glitch words, as used in project names and elsewhere.
+---
 
-## ⭐️ Contributing
+## Scripts
+
+| Script                 | Description                              |
+| ---------------------- | ---------------------------------------- |
+| `npm run dev`          | Start local dev server via Netlify CLI   |
+| `npm run typecheck`    | Run TypeScript type checking (no emit)   |
+| `npm run lint`         | Lint `netlify/` with ESLint              |
+| `npm run lint:fix`     | Auto-fix lint issues                     |
+| `npm run format`       | Format all files with Prettier           |
+| `npm run format:check` | Check formatting without writing changes |
+
+---
+
+## Project Structure
+
+```
+friendly-words-api/
+├── netlify/
+│   └── functions/
+│       └── friendly-words.ts   # Serverless function handler
+├── data/
+│   ├── predicates.json         # 1454 adjectives/verbs (bundled from Glitch)
+│   └── objects.json            # 3072 nouns (bundled from Glitch)
+├── eslint.config.js            # ESLint 9 flat config
+├── netlify.toml                # Netlify build & function config
+├── tsconfig.json               # TypeScript config (type-check only, noEmit)
+└── package.json
+```
+
+---
+
+## Built With
+
+- [TypeScript](https://www.typescriptlang.org) — strict type checking
+- [Netlify Functions v2](https://docs.netlify.com/functions/overview/) — serverless, Web Standard `Request`/`Response` API
+- [esbuild](https://esbuild.github.io) — bundler (via Netlify's build system)
+- [ESLint 9](https://eslint.org) — flat config linting
+- [Prettier 3](https://prettier.io) — code formatting
+- Word data: [glitchdotcom/friendly-words](https://github.com/glitchdotcom/friendly-words) (MIT)
+
+---
+
+## Contributing
 
 [CONTRIBUTING.md](https://gist.github.com/RickBr0wn/0b4a139f833e0d0bafddb0d043644b20)
 
-## 📚 Author(s)
+## Author
 
-- **Rick Brown** - _Initial work_ - [RickBr0wn](https://github.com/RickBr0wn)
+**Rick Brown** — [RickBr0wn](https://github.com/RickBr0wn)
 
-## 🪪 License
+## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://gist.github.com/RickBr0wn/5f95ee6118bb32034e2b94acbd88a99d) file for details
+MIT — see [LICENSE.md](https://gist.github.com/RickBr0wn/5f95ee6118bb32034e2b94acbd88a99d)

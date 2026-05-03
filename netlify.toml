@@ -1,7 +1,5 @@
 [build]
-  functions = "functions"
+  publish = "."
 
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/friendly-words/:splat"
-  status = 200
+[functions]
+  node_bundler = "esbuild"
