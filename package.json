@@ -5,6 +5,9 @@
   "author": "Rick Brown",
   "license": "MIT",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "netlify dev",
     "typecheck": "tsc --noEmit",
