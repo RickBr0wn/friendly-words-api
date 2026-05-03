@@ -1,6 +1,6 @@
 # Friendly Words API
 
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)]()
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/RickBr0wn/friendly-words-api/blob/main/CONTRIBUTING.md)
 
 A Netlify Functions v2 serverless API that returns random friendly word pairs. Perfect for generating readable file names, usernames, or project identifiers. Word lists are sourced from [Glitch's friendly-words](https://github.com/glitchdotcom/friendly-words) (MIT licensed) and bundled locally, so no runtime npm dependency.
 
@@ -14,7 +14,7 @@ A Netlify Functions v2 serverless API that returns random friendly word pairs. P
 
 Returns a single random word pair.
 
-**Response**
+### Response
 
 ```json
 {
@@ -26,16 +26,16 @@ Returns a single random word pair.
 
 ### Query Parameters
 
-| Parameter   | Type   | Default | Description                                                                               |
-| ----------- | ------ | ------- | ----------------------------------------------------------------------------------------- |
+| Parameter   | Type   | Default | Description                                                                                |
+| ----------- | ------ | ------- | ------------------------------------------------------------------------------------------ |
 | `count`     | number | `1`     | Number of word pairs to return (capped at 10). When `count > 1` the response is an array. |
-| `separator` | string | ` `     | Character(s) placed between the predicate and object in `phrase`.                         |
+| `separator` | string | ` `     | Character(s) placed between the predicate and object in `phrase`.                          |
 
 ### Examples
 
-**Single pair (default)**
+#### Single pair (default)
 
-```
+```http
 GET /
 ```
 
@@ -43,9 +43,9 @@ GET /
 { "predicate": "brave", "object": "mountain", "phrase": "brave mountain" }
 ```
 
-**Multiple pairs**
+#### Multiple pairs
 
-```
+```http
 GET /?count=3
 ```
 
@@ -57,9 +57,9 @@ GET /?count=3
 ]
 ```
 
-**Slug-style output**
+#### Slug-style output
 
-```
+```http
 GET /?separator=-
 ```
 
@@ -67,17 +67,16 @@ GET /?separator=-
 { "predicate": "swift", "object": "river", "phrase": "swift-river" }
 ```
 
-**Multiple slug-style pairs**
+#### Multiple slug-style pairs
 
-```
+```http
 GET /?count=5&separator=-
 ```
 
 ```json
 [
-  { "predicate": "swift",  "object": "river",   "phrase": "swift-river" },
-  { "predicate": "bright", "object": "canyon",  "phrase": "bright-canyon" },
-  ...
+  { "predicate": "swift", "object": "river", "phrase": "swift-river" },
+  { "predicate": "bright", "object": "canyon", "phrase": "bright-canyon" }
 ]
 ```
 
@@ -123,7 +122,7 @@ The Netlify CLI starts a local dev server at `http://localhost:8888`. The functi
 
 ## Project Structure
 
-```
+```text
 friendly-words-api/
 ├── netlify/
 │   └── functions/
@@ -152,7 +151,7 @@ friendly-words-api/
 
 ## Contributing
 
-[CONTRIBUTING.md](https://gist.github.com/RickBr0wn/0b4a139f833e0d0bafddb0d043644b20)
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
 ## Author
 
