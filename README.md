@@ -2,7 +2,7 @@
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)]()
 
-A Netlify Functions v2 serverless API that returns random friendly word pairs — perfect for generating readable file names, usernames, or project identifiers. Word lists are sourced from [Glitch's friendly-words](https://github.com/glitchdotcom/friendly-words) (MIT licensed) and bundled locally — no runtime npm dependency.
+A Netlify Functions v2 serverless API that returns random friendly word pairs. Perfect for generating readable file names, usernames, or project identifiers. Word lists are sourced from [Glitch's friendly-words](https://github.com/glitchdotcom/friendly-words) (MIT licensed) and bundled locally, so no runtime npm dependency.
 
 **Live endpoint:** `https://friendly-words-api.netlify.app`
 
